@@ -10,7 +10,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    env:
+      SUPER_SECRET: ${{ secrets.LARGE_SECRET_PASSPHRASE }},
+      API_KEY: ${{ secrets.API_KEY }}
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
