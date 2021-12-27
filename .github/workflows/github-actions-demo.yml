@@ -3,6 +3,8 @@ on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
+    env:
+      SUPER_SECRET: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -10,7 +12,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "the secret variable value is ${{ secrets.LARGE_SECRET_PASSPHRASE }}"      
+      - run: echo "the secret variable value is ${{ SUPER_SECRET }}"      
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
         run: |
